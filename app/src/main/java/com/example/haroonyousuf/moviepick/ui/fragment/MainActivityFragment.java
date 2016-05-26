@@ -1,4 +1,4 @@
-package com.example.haroonyousuf.moviepick;
+package com.example.haroonyousuf.moviepick.ui.fragment;
 
 import android.app.AlertDialog;
 import android.content.ContentValues;
@@ -30,15 +30,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.ProgressBar;
-import android.widget.Switch;
 import android.widget.Toast;
 
+import com.example.haroonyousuf.moviepick.R;
 import com.example.haroonyousuf.moviepick.adapters.RecyclerViewGridAdapter;
 import com.example.haroonyousuf.moviepick.api.TMDBService;
 import com.example.haroonyousuf.moviepick.constants.Constants;
 import com.example.haroonyousuf.moviepick.data.TMDBContract;
 import com.example.haroonyousuf.moviepick.model.TMDBMovie;
 import com.example.haroonyousuf.moviepick.model.TMDB_Movie_Feeds;
+import com.example.haroonyousuf.moviepick.ui.activity.SettingsActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
@@ -225,9 +226,9 @@ public class MainActivityFragment extends Fragment implements RecyclerViewGridAd
             previousVisibleItems = gridLayoutManager.findFirstVisibleItemPosition(); //scrolled item count
 
             //fetch new data when only 10 items left at bottom
-            if (totalItemCount > 0 && totalItemCount - (visibleItemCount + previousVisibleItems) < Constants.ITEM_THRESHOLD) {
-                //getMovieFeeds(pageIndex, sortedBy);
-            }
+            /*if (totalItemCount > 0 && totalItemCount - (visibleItemCount + previousVisibleItems) < Constants.ITEM_THRESHOLD) {
+                getMovieFeeds(pageIndex, sortedBy);
+            }*/
         }
 
         @Override
@@ -464,7 +465,7 @@ public class MainActivityFragment extends Fragment implements RecyclerViewGridAd
         /*
         * Movie detail fragment's callback when item has been selected
         * */
-        public void onItemSelected(long movieId, View view);
+        void onItemSelected(long movieId, View view);
     }
 
 

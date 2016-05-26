@@ -5,8 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.haroonyousuf.moviepick.MovieDetailActivityFragment;
-import com.example.haroonyousuf.moviepick.TrailerSlidePageFragment;
+import com.example.haroonyousuf.moviepick.ui.fragment.MovieDetailActivityFragment;
+import com.example.haroonyousuf.moviepick.ui.fragment.TrailerSlidePageFragment;
 import com.example.haroonyousuf.moviepick.model.TMDB_Trailer;
 
 public class TrailerCursorPagerAdapter<F extends Fragment> extends FragmentStatePagerAdapter {

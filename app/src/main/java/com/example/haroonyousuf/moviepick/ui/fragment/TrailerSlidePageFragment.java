@@ -1,4 +1,4 @@
-package com.example.haroonyousuf.moviepick;
+package com.example.haroonyousuf.moviepick.ui.fragment;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.haroonyousuf.moviepick.R;
 import com.example.haroonyousuf.moviepick.constants.Constants;
 import com.example.haroonyousuf.moviepick.model.TMDB_Trailer;
 import com.google.gson.Gson;

@@ -1,8 +1,11 @@
-package com.example.haroonyousuf.moviepick;
+package com.example.haroonyousuf.moviepick.ui.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
+
+import com.example.haroonyousuf.moviepick.R;
+import com.example.haroonyousuf.moviepick.ui.fragment.MovieDetailActivityFragment;
 
 public class MovieDetailActivity extends AppCompatActivity {
 
@@ -35,4 +38,9 @@ public class MovieDetailActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.back_enter, R.anim.back_leave);
+    }
 }

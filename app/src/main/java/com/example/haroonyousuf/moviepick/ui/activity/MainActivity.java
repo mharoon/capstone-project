@@ -1,4 +1,4 @@
-package com.example.haroonyousuf.moviepick;
+package com.example.haroonyousuf.moviepick.ui.activity;
 
 import android.content.Intent;
 import android.os.Build;
@@ -9,7 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.View;
 
+import com.example.haroonyousuf.moviepick.MoviePickApplication;
+import com.example.haroonyousuf.moviepick.R;
 import com.example.haroonyousuf.moviepick.constants.Constants;
+import com.example.haroonyousuf.moviepick.ui.fragment.MainActivityFragment;
+import com.example.haroonyousuf.moviepick.ui.fragment.MovieDetailActivityFragment;
 
 
 public class MainActivity extends AppCompatActivity implements MainActivityFragment.ItemClickCallback {
@@ -20,7 +24,13 @@ public class MainActivity extends AppCompatActivity implements MainActivityFragm
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //sliding animation
+        overridePendingTransition(R.anim.animation_enter,
+                R.anim.animation_leave);
         setContentView(R.layout.activity_main);
+
+        ((MoviePickApplication) getApplication()).getTracker();
+
         if (findViewById(R.id.movie_detail_container) != null) {
 
             mTwoPane = true;
@@ -79,4 +89,5 @@ public class MainActivity extends AppCompatActivity implements MainActivityFragm
         }
 
     }
+
 }

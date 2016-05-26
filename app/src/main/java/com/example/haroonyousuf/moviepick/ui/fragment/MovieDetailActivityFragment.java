@@ -1,4 +1,4 @@
-package com.example.haroonyousuf.moviepick;
+package com.example.haroonyousuf.moviepick.ui.fragment;
 
 import android.app.Activity;
 import android.content.ContentValues;
@@ -39,6 +39,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.haroonyousuf.moviepick.R;
+import com.example.haroonyousuf.moviepick.util.Utility;
 import com.example.haroonyousuf.moviepick.adapters.TrailerCursorPagerAdapter;
 import com.example.haroonyousuf.moviepick.api.TMDBService;
 import com.example.haroonyousuf.moviepick.constants.Constants;
@@ -48,6 +50,7 @@ import com.example.haroonyousuf.moviepick.model.TMDB_Movie_Reviews;
 import com.example.haroonyousuf.moviepick.model.TMDB_Movie_Trailers;
 import com.example.haroonyousuf.moviepick.model.TMDB_Review;
 import com.example.haroonyousuf.moviepick.model.TMDB_Trailer;
+import com.example.haroonyousuf.moviepick.ui.activity.SettingsActivity;
 import com.squareup.picasso.Picasso;
 import com.viewpagerindicator.PageIndicator;
 

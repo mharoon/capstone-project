@@ -1,4 +1,4 @@
-package com.example.haroonyousuf.moviepick;
+package com.example.haroonyousuf.moviepick.util;
 
 public class Utility {
 

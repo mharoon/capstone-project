@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ga_trackingId">UA-78280757-1</string>
+    <bool name="ga_autoActivityTracking">true</bool>
+
+    <screenName name="com.example.haroonyousuf.moviepick.ui.activity.MainActivity">
+        Movie Listing
+    </screenName>
+    <screenName name="com.example.haroonyousuf.moviepick.ui.activity.MovieDetailActivity">
+        Movie Detail
+    </screenName>
+    <screenName name="com.example.haroonyousuf.moviepick.ui.activity.SettingsActivity">
+        Settings
+    </screenName>
+</resources>

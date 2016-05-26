@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.haroonyousuf.moviepick.MainActivityFragment;
+import com.example.haroonyousuf.moviepick.ui.fragment.MainActivityFragment;
 import com.example.haroonyousuf.moviepick.R;
 import com.example.haroonyousuf.moviepick.model.TMDBMovie;
 import com.squareup.picasso.Picasso;
