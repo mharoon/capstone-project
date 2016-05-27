@@ -1,11 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".ui.activity.SubSectionActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ui.activity.SubSectionActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -19,20 +18,32 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools" android:id="@+id/fragment_grid"
-        android:name="com.example.haroonyousuf.moviepick.ui.fragment.MainActivityFragment"
-        tools:layout="@layout/fragment_main" android:layout_width="0dp"
-        android:layout_weight="2.5"
-        android:layout_height="match_parent" />
-
-    <FrameLayout
-        android:id="@+id/movie_detail_container"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="4">
+        android:baselineAligned="false"
+        android:divider="?android:attr/dividerHorizontal"
+        android:orientation="horizontal"
+        tools:context="com.example.haroonyousuf.moviepick..MainActivity">
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/fragment_grid"
+            android:name="com.example.haroonyousuf.moviepick.ui.fragment.MainActivityFragment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
+            tools:layout="@layout/fragment_main" />
+
+        <LinearLayout
+            android:id="@+id/movie_detail_container"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:orientation="vertical">
 
 
-    </FrameLayout>
+        </LinearLayout>
 
+    </LinearLayout>
 </LinearLayout>
