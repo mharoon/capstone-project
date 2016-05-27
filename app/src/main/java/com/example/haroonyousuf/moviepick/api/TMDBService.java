@@ -23,7 +23,7 @@ public class TMDBService {
         if (iTMDBService == null) {
             RestAdapter restAdapter = new RestAdapter.Builder()
                     .setEndpoint(Constants.SERVICE_END_POINT)
-                    .setLogLevel(RestAdapter.LogLevel.BASIC)
+                    .setLogLevel(RestAdapter.LogLevel.FULL)
                     .setLog(new AndroidLog(LOG_TAG))
                     .build();
 

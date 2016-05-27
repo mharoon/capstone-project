@@ -21,20 +21,37 @@ import android.accounts.AccountManager;
 import android.content.AbstractThreadedSyncAdapter;
 import android.content.ContentProviderClient;
 import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.SyncResult;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 
 import com.example.haroonyousuf.moviepick.R;
+import com.example.haroonyousuf.moviepick.api.TMDBService;
+import com.example.haroonyousuf.moviepick.constants.Constants;
+import com.example.haroonyousuf.moviepick.data.TMDBContract;
+import com.example.haroonyousuf.moviepick.model.TMDBMovie;
+import com.example.haroonyousuf.moviepick.model.TMDB_Movie_Feeds;
+
+import java.util.List;
+import java.util.Vector;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class MoviePickSyncAdapter extends AbstractThreadedSyncAdapter {
 
     private static final String LOG_TAG = MoviePickSyncAdapter.class.getSimpleName();
 
-    public static final int SYNC_INTERVAL = 60; // 10 hours
+    public static final int PAGE_INDEX = 1;
+    public static final int SYNC_INTERVAL = 60 * 60 * 10; // 10 hours
 
     public MoviePickSyncAdapter(Context context, boolean autoInitialize) {
         super(context, autoInitialize);
@@ -43,6 +60,57 @@ public class MoviePickSyncAdapter extends AbstractThreadedSyncAdapter {
     @Override
     public void onPerformSync(Account account, Bundle extras, String authority, ContentProviderClient provider, SyncResult syncResult) {
         Log.d(LOG_TAG, "onPerformSync");
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        int sortOption = Integer.parseInt(prefs.getString(Constants.PREF_SORT_LIST_KEY, "0"));
+
+        String sortBy = (sortOption == 0) ? Constants.SORT_BY_POPULARITY : Constants.SORT_BY_VOTE_AVG;
+
+        TMDBService.getTMDBApiClient().getMovieFeeds(sortBy, PAGE_INDEX, Constants.API_KEY, new Callback<TMDB_Movie_Feeds>() {
+            @Override
+            public void success(TMDB_Movie_Feeds tmdbMovieFeeds, Response response) {
+                //bind adapter with new data
+                bindGrid(tmdbMovieFeeds.getResults());
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                bindGrid(null);
+                Log.d("mhyousuf.moviestreamer", "MainActivityFragment:" + error.getMessage());
+            }
+        });
+
+    }
+
+    private void bindGrid(List<TMDBMovie> results) {
+        if (results != null) {
+            Vector<ContentValues> cVVector = new Vector<>(results.size());
+
+            for (TMDBMovie movie : results) {
+
+                ContentValues movieValues = new ContentValues();
+                movieValues.put(TMDBContract.MovieEntry._ID, movie.getId());
+                movieValues.put(TMDBContract.MovieEntry.COLUMN_BACKDROP_PATH, movie.getBackdropPath());
+                movieValues.put(TMDBContract.MovieEntry.COLUMN_OVERVIEW, movie.getOverview());
+                movieValues.put(TMDBContract.MovieEntry.COLUMN_RELEASE_DATE, movie.getReleaseDate());
+                movieValues.put(TMDBContract.MovieEntry.COLUMN_POSTER_PATH, movie.getPosterPath());
+                movieValues.put(TMDBContract.MovieEntry.COLUMN_POPULARITY, movie.getPopularity());
+                movieValues.put(TMDBContract.MovieEntry.COLUMN_TITLE, movie.getTitle());
+                movieValues.put(TMDBContract.MovieEntry.COLUMN_VOTE_AVERAGE, movie.getVoteAverage());
+                movieValues.put(TMDBContract.MovieEntry.COLUMN_VOTE_COUNT, movie.getVoteCount());
+
+                cVVector.add(movieValues);
+            }
+
+            if (cVVector.size() > 0) {
+                ContentValues[] cvArray = new ContentValues[cVVector.size()];
+                cVVector.toArray(cvArray);
+                int rowsInserted = getContext().getContentResolver().bulkInsert(TMDBContract.MovieEntry.CONTENT_URI, cvArray);
+
+                Log.v(LOG_TAG, "inserted " + rowsInserted + " rows of movies data");
+            }
+
+        }
     }
 
     /**
@@ -73,7 +141,7 @@ public class MoviePickSyncAdapter extends AbstractThreadedSyncAdapter {
         Account newAccount = new Account(context.getString(R.string.app_name), context.getString(R.string.sync_account_type));
 
         // If the password doesn't exist, the account doesn't exist
-         if (null == accountManager.getPassword(newAccount)) {
+        if (null == accountManager.getPassword(newAccount)) {
 
         /*
          * Add the account and account type, no password or user data
@@ -90,7 +158,7 @@ public class MoviePickSyncAdapter extends AbstractThreadedSyncAdapter {
              * here.
              */
 
-            if (ContentResolver.isSyncPending(newAccount, context.getString(R.string.content_authority))  ||
+            if (ContentResolver.isSyncPending(newAccount, context.getString(R.string.content_authority)) ||
                     ContentResolver.isSyncActive(newAccount, context.getString(R.string.content_authority))) {
                 Log.i("ContentResolver", "SyncPending, canceling");
 
@@ -110,7 +178,6 @@ public class MoviePickSyncAdapter extends AbstractThreadedSyncAdapter {
                     context.getString(R.string.content_authority),
                     Bundle.EMPTY,
                     SYNC_INTERVAL);
-
 
 
             syncImmediately(context);

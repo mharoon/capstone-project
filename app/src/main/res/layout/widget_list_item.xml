@@ -27,6 +27,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:scaleType="centerCrop"
+                android:contentDescription="@string/cd_movie_poster"
                 />
 
 
@@ -44,7 +45,8 @@
                 android:id="@+id/movie_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000" />
+                android:textColor="#000"
+                android:contentDescription="@string/cd_movie_title"/>
 
 
         </LinearLayout>
@@ -63,7 +65,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:textColor="@color/material_yellow" />
+                android:textColor="@color/material_yellow"
+                android:contentDescription="@string/cd_movie_avg"/>
         </LinearLayout>
 
 

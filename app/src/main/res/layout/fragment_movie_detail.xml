@@ -30,7 +30,8 @@
                 android:id="@+id/img_movie_detail_backdrop"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/cd_image_backdrop"/>
 
 
             <LinearLayout
@@ -61,7 +62,8 @@
                         android:shadowRadius="6"
                         android:textColor="@color/white"
                         android:textSize="@dimen/abc_text_size_title_material"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:contentDescription="@string/cd_movie_title"/>
 
 
                     <LinearLayout
@@ -80,7 +82,8 @@
                             android:focusable="false"
                             android:isIndicator="true"
                             android:numStars="10"
-                            android:progressTint="@color/material_yellow" />
+                            android:progressTint="@color/material_yellow"
+                            android:contentDescription="@string/cd_movie_rating"/>
 
                         <TextView
                             android:id="@+id/txt_movie_detail_vote"
@@ -106,7 +109,8 @@
                         android:textOff=""
                         android:focusable="false"
                         android:focusableInTouchMode="false"
-                        android:layout_gravity="end|center"/>
+                        android:layout_gravity="end|center"
+                        android:contentDescription="@string/cd_fav_switch"/>
                     <!--<ImageView
                         android:id="@+id/img_movie_detail_favorite"
                         android:layout_width="wrap_content"
@@ -137,6 +141,7 @@
                         android:id="@+id/img_detail_poster_movie"
                         android:layout_width="@dimen/detail_poster_width"
                         android:layout_height="@dimen/detail_poster_height"
+                        android:contentDescription="@string/cd_movie_poster"
                         android:transitionName="@string/movie_poster_transition_name">
                     </ImageView>
 
@@ -146,7 +151,8 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/abc_text_size_body_2_material"
                         android:textColor="@color/material_gery_400"
-                        android:layout_gravity="center_horizontal" />
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@string/cd_release_date"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -159,7 +165,8 @@
                     <TextView
                         android:id="@+id/txt_movie_detail_synopsis"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/cd_movie_synopsis"/>
 
                 </LinearLayout>
             </LinearLayout>

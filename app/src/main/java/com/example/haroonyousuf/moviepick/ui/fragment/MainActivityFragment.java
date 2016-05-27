@@ -305,7 +305,9 @@ public class MainActivityFragment extends Fragment implements RecyclerViewGridAd
             getLoaderManager().restartLoader(MOVIE_LOADER, null, this);
 
             if(pageIndex == 1) {
-                getMovieFeeds(pageIndex, sortedBy);
+                //call sync adapter
+                //getMovieFeeds(pageIndex, sortedBy);
+                MoviePickSyncAdapter.syncImmediately(getActivity());
             }
         }
     }

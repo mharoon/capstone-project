@@ -27,7 +27,8 @@
                 android:layout_height="32dp"
                 android:contentDescription="@string/widget_title"
                 android:layout_gravity="center_vertical"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/ic_launcher"
+                />
 
             <LinearLayout
                 android:id="@+id/widgetTopBar"
@@ -49,7 +50,8 @@
                     android:text="@string/widget_title"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#4B4B4D"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:contentDescription="@string/cd_widget_title"/>
 
             </LinearLayout>
         </LinearLayout>

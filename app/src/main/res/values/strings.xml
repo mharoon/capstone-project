@@ -49,4 +49,23 @@
     <string name="sync_account_type">moviepick.haroonyousuf.example.com</string>
     <string name="content_authority" translatable="false">com.example.haroonyousuf.moviepick.app</string>
 
+    <!-- Content Descriptions -->
+    <string name="cd_movie_poster">movie poster</string>
+    <string name="cd_movie_title">title</string>
+    <string name="cd_movie_avg">avg rating</string>
+    <string name="cd_widget_title">Widget title</string>
+    <string name="cd_sort">sort menu</string>
+    <string name="cd_reviewer">reviewer name</string>
+    <string name="cd_review_content">review content</string>
+
+    <string name="cd_trailer_name">trailer name</string>
+    <string name="cd_trailer_thumb">trailer thumb</string>
+    <string name="cd_trailer_play_button">play trailer</string>
+
+    <string name="cd_image_backdrop">image backdrop</string>
+    <string name="cd_movie_rating">rating</string>
+    <string name="cd_fav_switch">favourite movie switch</string>
+    <string name="cd_release_date">release date</string>
+    <string name="cd_movie_synopsis">synopsis</string>
+
 </resources>
