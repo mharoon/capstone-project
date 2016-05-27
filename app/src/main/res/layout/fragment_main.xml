@@ -5,16 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragment.MainActivityFragment">
 
-    <!--    <GridView
-            android:id="@+id/grid"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:columnWidth="150dp"
-            android:numColumns="auto_fit"
-            android:horizontalSpacing="2dp"
-            android:verticalSpacing="2dp"
-            android:stretchMode="columnWidth"
-            android:drawSelectorOnTop="true" />-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
