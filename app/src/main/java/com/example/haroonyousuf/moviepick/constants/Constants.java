@@ -4,6 +4,8 @@ public class Constants {
     public static final String SERVICE_END_POINT = "http://api.themoviedb.org/3";
     public static final String API_KEY = "a66282dfcb32e5db1422dd285f9d8e8f";
 
+    public static final int WIDGET_ITEM_LIMIT = 5;
+
     public static final String PREF_SORT_LIST_KEY = "sort_list";
 
     //fetch data threshold on grid item scrolling

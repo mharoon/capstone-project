@@ -37,6 +37,7 @@ import com.example.haroonyousuf.moviepick.adapters.RecyclerViewGridAdapter;
 import com.example.haroonyousuf.moviepick.api.TMDBService;
 import com.example.haroonyousuf.moviepick.constants.Constants;
 import com.example.haroonyousuf.moviepick.data.TMDBContract;
+import com.example.haroonyousuf.moviepick.data.sync.MoviePickSyncAdapter;
 import com.example.haroonyousuf.moviepick.model.TMDBMovie;
 import com.example.haroonyousuf.moviepick.model.TMDB_Movie_Feeds;
 import com.example.haroonyousuf.moviepick.ui.activity.SettingsActivity;
@@ -113,6 +114,16 @@ public class MainActivityFragment extends Fragment implements RecyclerViewGridAd
         getLoaderManager().initLoader(MOVIE_LOADER, null, this);
         super.onActivityCreated(savedInstanceState);
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        updateMovies();
+    }
+
+    private void updateMovies() {
+        MoviePickSyncAdapter.syncImmediately(getActivity());
     }
 
     @Override

@@ -6,6 +6,12 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
 
+    <!-- Permissions required by the sync adapter -->
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_SYNC_STATS" />
+
     <application
         android:name=".MoviePickApplication"
         android:allowBackup="true"
@@ -68,7 +74,44 @@
         </activity>
         <provider
             android:authorities="com.example.haroonyousuf.moviepick.app"
-            android:name=".data.TMDBProvider"/>
+            android:name=".data.TMDBProvider"
+            android:exported="false"
+            android:syncable="true"/>
+
+        <service android:name=".ui.widget.ListRemoteViewService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"/>
+
+
+        <receiver android:label="MoviePick" android:name=".ui.widget.MovieWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/widget_provider" />
+        </receiver>
+
+
+        <service android:name=".data.sync.MoviePickAuthenticatorService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
+        </service>
+
+        <service
+            android:name=".data.sync.MoviePickSyncService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/syncadapter" />
+        </service>
+
     </application>
 
 </manifest>

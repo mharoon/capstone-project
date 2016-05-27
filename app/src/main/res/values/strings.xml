@@ -44,7 +44,9 @@
 
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
 
+    <string name="widget_title">MoviePick - Popular Picks</string>
 
-
+    <string name="sync_account_type">moviepick.haroonyousuf.example.com</string>
+    <string name="content_authority" translatable="false">com.example.haroonyousuf.moviepick.app</string>
 
 </resources>
