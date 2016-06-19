@@ -21,6 +21,8 @@ This app:
     - User can see the app usage detail on https://analytics.google.com
 * Sync Adapter
     - Movie list updated automatically after some interval.
+* On Screen Widget
+    - Widget to show top 5 popular movies
 
 
 ## How to Work with the Source
