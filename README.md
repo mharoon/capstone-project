@@ -36,10 +36,10 @@ You must provide your own API key in order to build the app.
 
 ## Screens
 
- <img src="https://github.com/mharoon/capstone-project/blob/master/screenshots/pop_screen_1.png" width="500" height="800">
+ <img src="https://github.com/mharoon/capstone-project/blob/master/screenshots/pop_screen_1.png" width="300" height="500">
 
- <img src="https://github.com/mharoon/capstone-project/blob/master/screenshots/pop_screen_4.png" width="500" height="800">
+ <img src="https://github.com/mharoon/capstone-project/blob/master/screenshots/pop_screen_4.png" width="300" height="500">
 
- <img src="https://github.com/mharoon/capstone-project/blob/master/screenshots/pop_screen_3.png" width="500" height="800">
+ <img src="https://github.com/mharoon/capstone-project/blob/master/screenshots/pop_screen_3.png" width="300" height="500">
 
- <img src="https://github.com/mharoon/capstone-project/blob/master/screenshots/pop_screen_2.png" width="500" height="800">
+ <img src="https://github.com/mharoon/capstone-project/blob/master/screenshots/pop_screen_2.png" width="300" height="500">
