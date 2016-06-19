@@ -36,7 +36,7 @@ You must provide your own API key in order to build the app.
 
 ## Screens
 
- ![Application screen 1](https://github.com/mharoon/capstone-project/blob/master/screenshots/pop_screen_1.png =250x250)
+ <img src="https://github.com/mharoon/capstone-project/blob/master/screenshots/pop_screen_4.png" width="200" height="200">
 
  ![Application screen 2](https://github.com/mharoon/capstone-project/blob/master/screenshots/pop_screen_4.png =250x250)
 
